@@ -1,0 +1,19 @@
+{
+  "layout": "splith",
+  "percent": 1,
+  "type": "con",
+  "nodes": [
+    {
+      "name": "Terminals",
+      "type": "con",
+      "swallows": [
+        {
+        "class": "^URxvt$",
+        "instance": "^urxvt$"
+        }
+      ]
+    }
+
+  ]
+}
+

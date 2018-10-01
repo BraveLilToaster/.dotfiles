@@ -1,0 +1,19 @@
+{
+  "layout": "splith",
+  "percent": 1,
+  "type": "con",
+  "nodes": [
+    {
+      "name": "Firefox",
+      "type": "con",
+      "swallows": [
+        {
+        "class": "^Firefox$",
+        "instance": "^Navigator$"
+        }
+      ]
+    }
+
+  ]
+}
+

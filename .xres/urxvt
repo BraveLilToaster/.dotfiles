@@ -1,0 +1,13 @@
+URxvt.perl-ext-common: default, selection-to-clipboard, matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Uline Bold fg5
+URxvt.font: xft:Hack Nerd Font Mono:size=11
+URxvt.scrollBar: false
+URxvt*depth: 32
+URxvt*background: [90]#263238
+URxvt*foreground: #ffffff
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard

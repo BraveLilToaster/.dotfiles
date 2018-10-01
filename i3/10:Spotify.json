@@ -1,0 +1,17 @@
+{
+  "layout": "splith",
+  "percent": 1,
+  "type": "con",
+  "nodes": [
+    {
+      "name": "Spotify",
+      "type": "con",
+      "swallows": [
+        {
+          "class": "^Spotify$",
+          "instance": "^spotify$"
+        }
+      ]
+    }
+  ]
+}

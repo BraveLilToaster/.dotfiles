@@ -1,0 +1,13 @@
+open_with 
+j
+rename test.css
+vim
+e!
+e
+find 
+open_with 1
+open_with vim
+open_with qq
+open_with o
+open_with 0
+
