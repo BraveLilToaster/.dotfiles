@@ -13,6 +13,9 @@ sudo apt install \
   curl \
   feh \
   git \
+  i3 \
+  i3blocks \
+  i3lock \
   rxvt-unicode \
   scrot \
   tmux \
@@ -46,15 +49,46 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 # Set up vim
 printf "\n${bold}Setting up vim ${normal}"
-cd ~ && git clone https://github.com/BraveLilToaster/.vim.git
+pushd ~
+
+git clone https://github.com/BraveLilToaster/.vim.git
 ln -s -f ~/.vim/.vimrc ~/.vimrc
 vim +PlugInstall +qall > /dev/null 2>&1
 
+popd
+
 # Set up tmux
 printf "\n${bold}Setting up tmux${normal}"
-cd ~ && git clone https://github.com/gpakosz/.tmux.git
+pushd ~
+
+git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 mkdir .tmux.local && cd .tmux.local
 git clone https://gist.github.com/1979baa6cf78fb4403d0622fb179a5f0.git .
 ln -s -f ~/.tmux.local/.tmux.conf.local ~/.tmux.conf.local
 
+popd
+
+# Create symlinks for .dotfiles
+pushd ~/.config
+now=$(date +"%Y.%m.%d.%H.%M.%S")
+
+for file in .*; do
+  if [[ $file == "." || $file == ".." ]]; then
+    continue
+  fi
+  running "~/$file"
+  # if the file exists:
+  if [[ -e ~/$file ]]; then
+    mkdir -p ~/.dotfiles_backup/$now
+    mv ~/$file ~/.dotfiles_backup/$now/$file
+    echo "backup saved as ~/.dotfiles_backup/$now/$file"
+  fi
+  # symlink might still exist
+  unlink ~/$file > /dev/null 2>&1
+  # create the link
+  ln -s ~/.dotfiles/homedir/$file ~/$file
+  echo -en '\tlinked';ok
+done
+
+popd
