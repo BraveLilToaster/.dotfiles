@@ -30,7 +30,7 @@ font pango:Hack Nerd Font Mono Regular 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt # i3-sensible-terminal
+bindsym $mod+Return exec urxvt -e tmux # i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -195,11 +195,14 @@ bindsym $mod+shift+x exec "i3lock -c 000000;"
 # Lock and Suspend
 bindsym $mod+shift+s exec "i3lock -c 000000; systemctl suspend;"
 
+# Move Workspace to output
+bindsym $mod+Shift+Tab move workspace to output left
+
 # Pulse Audio controls
 # increase sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/change_volume.sh +5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/change_volume.sh +5%
 # decrease sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/change_volume.sh -5%
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/change_volume.sh -5%
 # mute volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
@@ -232,22 +235,26 @@ exec tlp start
 exec compton --config ~/.config/compton.conf -b
 
 # Set Background to change wallpaper every 15 minutes
-exec_always ~/.config/wallpaper-shuffle.sh ~/Pictures/Wallpapers 15
+exec ~/.config/scripts/wallpaper-shuffle.sh ~/Pictures/Wallpapers 15
 
 # Set Screen size to 1920x1080
 exec_always xrandr --output eDP-1 --mode 1920x1080
 
 # Increase mouse Speed
-exec xset m 28/10 0
+# useful on laptops
+# exec xset m 28/10 0
 
-# Start shortcuts for Network Manager, USB, Bluetooth, and Shutter(Screenshot)
+# Start shortcuts for Network Manager, USB, and Bluetooth
 exec --no-startup-id udiskie -ans &
 exec blueman-applet
 exec nm-applet
 
+# Syncthing
+exec syncthing
+
 # Spotify
 #exec --no-startup-id i3-msg "workspace $workspace10; append_layout ~/.config/i3/10:Spotify.json;"
-exec spotify --force-device-scale-factor=0.5
+exec spotify # --force-device-scale-factor=0.5
 for_window [class="Spotify"] move to workspace $workspace10
 
 # Wavebox
