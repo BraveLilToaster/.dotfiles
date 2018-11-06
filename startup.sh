@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # TODO
-# install python 2.7 ad 3
 # install pip
 # pip install grip
 
@@ -16,7 +15,7 @@ sudo apt install \
   i3 \
   i3blocks \
   i3lock \
-  rxvt-unicode \
+  rxvt-unicode-256color \
   scrot \
   tmux \
   vim-gtk \
