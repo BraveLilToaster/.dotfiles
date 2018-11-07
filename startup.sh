@@ -17,6 +17,7 @@ sudo apt install \
   i3lock \
   rxvt-unicode-256color \
   scrot \
+  syncthing \
   tmux \
   vim-gtk \
   xclip \

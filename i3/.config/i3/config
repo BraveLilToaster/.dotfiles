@@ -250,7 +250,7 @@ exec blueman-applet
 exec nm-applet
 
 # Syncthing
-exec syncthing
+exec syncthing -no-browser
 
 # Spotify
 #exec --no-startup-id i3-msg "workspace $workspace10; append_layout ~/.config/i3/10:Spotify.json;"
