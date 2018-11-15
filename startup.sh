@@ -25,13 +25,7 @@ sudo apt install \
 
 # Set up global .gitignore
 printf "\n${bold}Set up Global gitignore${normal}"
-cd ~
 git config --global core.excludesfile ~/.gitignore_global
-mkdir .gitignore && cd .gitignore
-git clone https://gist.github.com/6a9e981a7ef131dd3f5180da28ada21b.git .
-cd ~
-rm .gitignore_global
-ln -s ~/.gitignore/.gitignore_global ~/.gitignore_global
 
 # Install Node Latest
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
